@@ -1,1 +1,1 @@
-[План по автоматизации тестирования]()
+[План по автоматизации тестирования](https://github.com/Perepadin/MyDiplomQA/tree/master/documentation)
