@@ -4,6 +4,7 @@ import com.codeborne.selenide.logevents.SelenideLogger;
 import io.qameta.allure.selenide.AllureSelenide;
 import lombok.val;
 import org.junit.jupiter.api.*;
+import ru.netology.SQLunits.SqlUtils;
 import ru.netology.data.DataHelper;
 import ru.netology.page.PaymentPage;
 
@@ -31,11 +32,15 @@ public class HappyPathTest {
 
     @DisplayName("Успешная покупка по карте.")
     @Test
-    public void shouldConfirmPaymentWithApprovedCard() {
+    public void shouldConfirmPaymentWithApprovedCard() throws SQLException {
         val paymentPage = PaymentPage.payByCard();
         val approvedCardInformation = DataHelper.getValidCardInformation();
         paymentPage.enterCardData(approvedCardInformation);
         paymentPage.successfulPayment();
+
+        val paymentId = SqlUtils.getPaymentId();
+        val statusForPayment = SqlUtils.getStatusForPayment(paymentId);
+        Assertions.assertEquals("APPROVED", statusForPayment);
     }
 
     @DisplayName("Успешная покупка в кредит.")

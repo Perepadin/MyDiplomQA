@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="ru.netology.test.SadPathTest" tests="12" skipped="0" failures="0" errors="0" timestamp="2021-08-26T18:00:07" hostname="DESKTOP-5UO6581" time="12.967">
+  <properties/>
+  <testcase name="Негативный сценарий. Покупка в кредит с незаполненными данными." classname="ru.netology.test.SadPathTest" time="1.066"/>
+  <testcase name="Негативный сценарий. Покупка в кредит с незаполненными данными поля Владелец." classname="ru.netology.test.SadPathTest" time="1.103"/>
+  <testcase name="Негативный сценарий. Покупка в кредит с незаполненными данными поля Месяц." classname="ru.netology.test.SadPathTest" time="1.139"/>
+  <testcase name="Негативный сценарий. Покупка в кредит с незаполненными данными поля CVV." classname="ru.netology.test.SadPathTest" time="1.049"/>
+  <testcase name="Негативный сценарий. Покупка в кредит с незаполненными данными карты." classname="ru.netology.test.SadPathTest" time="1.066"/>
+  <testcase name="Негативный сценарий. Покупка в кредит с незаполненными данными поля Год." classname="ru.netology.test.SadPathTest" time="1.103"/>
+  <testcase name="Негативный сценарий. Покупка с незаполненными данными поля Месяц." classname="ru.netology.test.SadPathTest" time="1.118"/>
+  <testcase name="Негативный сценарий. Покупка с незаполненными данными." classname="ru.netology.test.SadPathTest" time="1.013"/>
+  <testcase name="Негативный сценарий. Покупка с незаполненными данными карты." classname="ru.netology.test.SadPathTest" time="1.084"/>
+  <testcase name="Негативный сценарий. Покупка с незаполненными данными поля Год." classname="ru.netology.test.SadPathTest" time="1.09"/>
+  <testcase name="Негативный сценарий. Покупка с незаполненными данными поля Владелец." classname="ru.netology.test.SadPathTest" time="1.077"/>
+  <testcase name="Негативный сценарий. Покупка с незаполненными данными поля CVV." classname="ru.netology.test.SadPathTest" time="1.03"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
