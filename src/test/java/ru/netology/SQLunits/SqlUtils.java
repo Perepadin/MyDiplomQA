@@ -1,5 +1,6 @@
 package ru.netology.SQLunits;
 
+import lombok.SneakyThrows;
 import lombok.val;
 
 import java.sql.Connection;
@@ -7,6 +8,7 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 
 public class SqlUtils {
+
     public static Connection getConnection() throws SQLException {
         String dbUrl = System.getProperty("db.url");
         String login = System.getProperty("login");
