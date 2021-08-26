@@ -40,6 +40,7 @@ public class PaymentPage {
     private SelenideElement errorNotification = $(withText("Ошибка"));
     private SelenideElement continueButton = $(withText("Продолжить"));
     private SelenideElement invalidFormatError = $(withText("Неверный формат"));
+    private SelenideElement requiredToFillIn = $(withText("Поле обязательно для заполнения"));
     private SelenideElement expiredYearError = $(withText("Истёк срок действия карты"));
     private SelenideElement expiredMonthError = $(withText("Неверно указан срок действия карты"));
 
@@ -62,6 +63,10 @@ public class PaymentPage {
 
     public void invalidFormat() {
         invalidFormatError.shouldBe(visible);
+    }
+
+    public void requiredToFillIn() {
+        requiredToFillIn.shouldBe(visible);
     }
 
     public void expiredYear() {
