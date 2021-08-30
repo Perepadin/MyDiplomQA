@@ -11,7 +11,7 @@ import ru.netology.page.PaymentPage;
 import java.sql.SQLException;
 
 import static com.codeborne.selenide.Selenide.open;
-import static org.junit.jupiter.api.Assertions.assertEquals;
+
 
 public class HappyPathTest {
 
@@ -33,21 +33,21 @@ public class HappyPathTest {
     @DisplayName("Успешная покупка по карте.")
     @Test
     public void shouldConfirmPaymentWithApprovedCard() throws SQLException {
-        val paymentPage = PaymentPage.payByCard();
-        val approvedCardInformation = DataHelper.getValidCardInformation();
+        var paymentPage = PaymentPage.payByCard();
+        var approvedCardInformation = DataHelper.getValidCardInformation();
         paymentPage.enterCardData(approvedCardInformation);
         paymentPage.successfulPayment();
 
-        val paymentId = SqlUtils.getPaymentId();
-        val statusForPayment = SqlUtils.getStatusForPayment(paymentId);
+        var paymentId = SqlUtils.getPaymentId();
+        var statusForPayment = SqlUtils.getStatusForPayment(paymentId);
         Assertions.assertEquals("APPROVED", statusForPayment);
     }
 
     @DisplayName("Успешная покупка в кредит.")
     @Test
     public void shouldConfirmBuyingOnCreditWithApprovedCard() throws SQLException {
-        val paymentPage = PaymentPage.buyOnCredit();
-        val approvedCardInformation = DataHelper.getValidCardInformation();
+        var paymentPage = PaymentPage.buyOnCredit();
+        var approvedCardInformation = DataHelper.getValidCardInformation();
         paymentPage.enterCardData(approvedCardInformation);
         paymentPage.successfulPayment();
     }
