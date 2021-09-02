@@ -1,6 +1,6 @@
 # Автоматизация тестирования формы "Путешествие дня - Марракеш".
 
-# Документация
+## Документация
 
 + [План по автоматизации тестирования](https://github.com/Perepadin/MyDiplomQA/blob/master/documentation/TestPlan.md)
 
@@ -8,7 +8,7 @@
 
 + [Отчет по автоматизации](https://github.com/Perepadin/MyDiplomQA/blob/master/documentation/Summary.md)
   
-### Prerequisites
+## Prerequisites
 Для выполнения работы необходимо:
 
 1. Установить [Google Chrome](https://www.google.ru/chrome/) (последней версии)
