@@ -84,16 +84,16 @@ public class DataHelper {
                 Integer.toString(enOption.number().numberBetween(100, 999)));
     }
 
-//    public static CardInformation getCardInformationWithInvalidNumber() {
-//        return new CardInformation(
-//                cardNumberGenerator.getInvalidCardNumber(),
-//                dateGenerator.shiftYear(5).getYear(),
-//                dateGenerator.shiftMonth(2).getMonth(),
-//                enOption.name().fullName(),
-//                Integer.toString(enOption.number().numberBetween(0, 999)));
-//    }
+    public static CardInformation getCardInformationWithInvalidNumber() {
+        return new CardInformation(
+                cardNumberGenerator.getInvalidCardNumber(),
+                dateGenerator.shiftYear(5).getYear(),
+                dateGenerator.shiftMonth(2).getMonth(),
+                enOption.name().fullName(),
+                Integer.toString(enOption.number().numberBetween(0, 999)));
+    }
 
-    public static CardInformation getInvalidCardInformation() {
+    public static CardInformation getDeclinedCardInformation() {
         return new CardInformation(
                 cardNumberGenerator.getDeclinedCardNumber(),
                 dateGenerator.shiftYear(5).getYear(),
@@ -115,6 +115,33 @@ public class DataHelper {
         return new CardInformation(cardNumberGenerator.getApprovedCardNumber(),
                 dateGenerator.shiftYear(0).getYear(),
                 dateGenerator.shiftMonth(-1).getMonth(),
+                enOption.name().fullName(),
+                Integer.toString(enOption.number().numberBetween(100, 999)));
+    }
+
+    public static CardInformation getCardInformationWithCyrillicName() {
+        return new CardInformation(
+                cardNumberGenerator.getApprovedCardNumber(),
+                dateGenerator.shiftYear(5).getYear(),
+                dateGenerator.shiftMonth(2).getMonth(),
+                ruOption.name().fullName(),
+                Integer.toString(enOption.number().numberBetween(100, 999)));
+    }
+
+    public static CardInformation getCardInformationWithNumericName() {
+        return new CardInformation(
+                cardNumberGenerator.getApprovedCardNumber(),
+                dateGenerator.shiftYear(5).getYear(),
+                dateGenerator.shiftMonth(2).getMonth(),
+                Integer.toString(enOption.number().numberBetween(1, 999)),
+                Integer.toString(enOption.number().numberBetween(100, 999)));
+    }
+
+    public static CardInformation getCardInformationWithWrongFormatDate() {
+        return new CardInformation(
+                cardNumberGenerator.getApprovedCardNumber(),
+                dateGenerator.wrongYear().getYear(),
+                dateGenerator.wrongMonth().getMonth(),
                 enOption.name().fullName(),
                 Integer.toString(enOption.number().numberBetween(100, 999)));
     }

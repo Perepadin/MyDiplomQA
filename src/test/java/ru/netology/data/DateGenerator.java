@@ -23,7 +23,7 @@ public class DateGenerator {
     }
 
     public Year wrongYear() {
-        return new Year(Integer.toString(faker.number().numberBetween(0,19)));
+        return new Year(Integer.toString(faker.number().numberBetween(1,9)));
     }
 
     @Value
