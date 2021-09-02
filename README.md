@@ -25,29 +25,29 @@
 ## Подготовка и запуск теста
 ### Инструкция по запуску с поддержкой MySQL
 
-1. Клонировать репозиторий выполнить команду:```git clone https://github.com/Perepadin/MyDiplomQA```
-1. Запуск контейнеров Docker выполнить команду:
+1. Клонировать репозиторий, выполнить команду:```git clone https://github.com/Perepadin/MyDiplomQA```
+1. Запуск контейнеров Docker, выполнить команду:
    ```docker-compose up```
 1. **Запуск SUT с поддержкой MySQL:** выполнить команду:
 ```java "-Dspring.datasource.url=jdbc:mysql://localhost:3306/app" -jar artifacts/aqa-shop.jar```
-1. Запуск тестов с MySQL выполнить команду:
+1. Запуск тестов с MySQL, выполнить команду:
 ```./gradlew "-Ddb.url=jdbc:mysql://localhost:3306/app" clean test```
-1. Отчёт Allure выполнить команду:
+1. Отчёт Allure, выполнить команду:
 ```./gradlew allureReport```
 ```./gradlew allureServe```
 1. Окончание тестов и остановка контейнеров
 
 ### Инструкция по запуску с поддержкой PostgreSQL
-1. Клонировать репозиторий выполнить команду:
+1. Клонировать репозиторий, выполнить команду:
 ```git clone https://github.com/Perepadin/MyDiplomQA```
-1. Запуск контейнеров Docker выполнить команду:
+1. Запуск контейнеров Docker, выполнить команду:
    ```docker-compose up -d```
-1. Запуск SUT с поддержкой **Postgres** выполнить команду
+1. Запуск SUT с поддержкой **Postgres**, выполнить команду
 ```java "-Dspring.datasource.url=jdbc:postgresql://localhost:5432/app" -jar artifacts/aqa-shop.jar```
 
-1. Запуск тестов с Postgres выполнить команду:
+1. Запуск тестов с Postgres, выполнить команду:
 ```./gradlew "-Ddb.url=jdbc:postgresql://localhost:5432/app" clean test```
-1. Отчёт Allure выполнить команду
+1. Отчёт Allure, выполнить команду
 ```./gradlew allureReport```
 ```./gradlew allureServe```
 1. Окончание тестов и остановка контейнеров
