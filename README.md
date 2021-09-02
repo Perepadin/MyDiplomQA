@@ -1,8 +1,13 @@
-
-
 # Автоматизация тестирования формы "Путешествие дня - Марракеш".
 
+# Документация
 
++ [План по автоматизации тестирования](https://github.com/Perepadin/MyDiplomQA/blob/master/documentation/TestPlan.md)
+
++ [Отчет по тестированию](https://github.com/Perepadin/MyDiplomQA/blob/master/documentation/Report.md)
+
++ [Отчет по автоматизации](https://github.com/Perepadin/MyDiplomQA/blob/master/documentation/Summary.md)
+  
 ### Prerequisites
 Для выполнения работы необходимо:
 
@@ -18,7 +23,7 @@
 6. Установить [Docker](https://www.docker.com)
 
 ## Подготовка и запуск теста
-###Инструкция по запуску с поддержкой MySQL
+### Инструкция по запуску с поддержкой MySQL
 
 1. Клонировать репозиторий выполнить команду:```git clone https://github.com/Perepadin/MyDiplomQA```
 1. Запуск контейнеров Docker выполнить команду:
@@ -32,7 +37,7 @@
 ```./gradlew allureServe```
 1. Окончание тестов и остановка контейнеров
 
-###Инструкция по запуску с поддержкой PostgreSQL
+### Инструкция по запуску с поддержкой PostgreSQL
 1. Клонировать репозиторий выполнить команду:
 ```git clone https://github.com/Perepadin/MyDiplomQA```
 1. Запуск контейнеров Docker выполнить команду:
@@ -54,34 +59,6 @@
 1. Установить [Github desktop](https://desktop.github.com) - бесплатный инструмент разработки;
 1. Установить [Docker](https://www.docker.com) - бесплатный инструмент разработки.
 
-#Документация
-
-[План по автоматизации тестирования](https://github.com/Perepadin/MyDiplomQA/blob/master/documentation/TestPlan.md)
-
-
-
-##Команды для работы
-1. Открыть новую консоль.
-2. Выполнить в терминале команду```docker-compose up```
-3. Открыть новую консоль.
-4. Выполнить в терминале команду```java "-Dspring.datasource.url=jdbc:mysql://localhost:3306/app" -jar artifacts/aqa-shop.jar```
-5. Открыть новую консоль.
-6. Выполнить в терминале команду```./gradlew "-Ddb.url=jdbc:mysql://localhost:3306/app" clean test```
-
-./gradlew allureReport
-./gradlew allureServe
-
-
-1. Открыть новую консоль.
-2. Выполнить в терминале команду```docker-compose up```
-3. Открыть новую консоль.
-4. Выполнить в терминале команду```java "-Dspring.datasource.url=jdbc:postgresql://localhost:5432/app" -jar artifacts/aqa-shop.jar```
-5. Открыть новую консоль.
-6. Выполнить в терминале команду```./gradlew "-Ddb.url=jdbc:postgresql://localhost:5432/app" clean test```
-
-
-7. ```./gradlew allureReport```
-8. ```./gradlew allureServe```
 
 
 
