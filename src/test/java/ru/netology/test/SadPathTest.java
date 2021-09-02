@@ -145,9 +145,6 @@ public class SadPathTest {
         paymentPage.invalidFormat();
     }
 
-
-// два теста по отклоненной карте.
-
     @DisplayName("14 A negative scenario. Purchase with a Declined card.")
     @Test
     public void shouldPaymentWithDeclinedCard() {
@@ -167,8 +164,6 @@ public class SadPathTest {
         paymentPage.enterCardData(declinedCardInformation);
         paymentPage.notSuccessfulPayment();
     }
-
-// два теста по отклоненной карте.
 
     @DisplayName("16 A negative scenario. Purchase using an expired card (in previous years).")
     @Test
@@ -210,7 +205,6 @@ public class SadPathTest {
         paymentPage.expiredMonth();
     }
 
-    // падающие 4 теста
     @DisplayName("20 A negative scenario. Purchase using a card with the holder's name in Cyrillic.")
     @Test
     public void shouldNotConfirmPaymentWithCyrillicHolderFieldCard() {
@@ -250,7 +244,6 @@ public class SadPathTest {
         paymentPage.enterCardData(invalidCardInformation);
         paymentPage.invalidFormat();
     }
-    //падающие 4 теста
 
     @DisplayName("24 A negative scenario. Purchase using a card with an incorrect date field format")
     @Test
