@@ -1,40 +1,22 @@
 package ru.netology.page;
 
-import com.codeborne.selenide.Condition;
+import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.SelenideElement;
 import ru.netology.data.DataHelper;
-
 import java.time.Duration;
 
 import static com.codeborne.selenide.Condition.visible;
-import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selectors.withText;
-import static com.codeborne.selenide.Selenide.$;
+import static com.codeborne.selenide.Selenide.*;
 
 public class PaymentPage {
 
-    private static SelenideElement byCardButton = $(byText("Купить"));
-    private static SelenideElement onCreditButton = $(byText("Купить в кредит"));
-    private static SelenideElement methodOfPaymentHeader = $("#root > div > h3");
-
-    public static PaymentPage payByCard() {
-        byCardButton.click();
-        methodOfPaymentHeader.shouldHave(Condition.text("Оплата по карте"));
-        return new PaymentPage();
-    }
-
-    public static PaymentPage buyOnCredit() {
-        onCreditButton.click();
-        methodOfPaymentHeader.shouldHave(Condition.text("Кредит по данным карты"));
-        return new PaymentPage();
-    }
-
-
-    private SelenideElement cardNumber = $("input[type=\"text\"][placeholder=\"0000 0000 0000 0000\"]");
-    private SelenideElement expirationMonth = $("input[type=\"text\"][placeholder=\"08\"]");
-    private SelenideElement expirationYear = $("input[type=\"text\"][placeholder=\"22\"]");
-    private SelenideElement cardHolderName = $("form > fieldset > div:nth-child(3) > span > span:nth-child(1) > span > span > span.input__box > input");
-    private SelenideElement cardSecurityCode = $("input[type=\"text\"][placeholder=\"999\"]");
+    private ElementsCollection fields = $$(".input__control");
+    private SelenideElement cardNumber = $("[placeholder='0000 0000 0000 0000']");
+    private SelenideElement expirationMonth = $("[placeholder='08']");
+    private SelenideElement expirationYear = $("[placeholder='22']");
+    private SelenideElement cardHolderName = fields.get(3);
+    private SelenideElement cardSecurityCode = $("[placeholder='999']");
 
     private SelenideElement successNotification = $(withText("Успешно"));
     private SelenideElement errorNotification = $(withText("Ошибка"));
