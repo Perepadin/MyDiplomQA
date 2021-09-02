@@ -19,9 +19,11 @@
 
 ![](https://github.com/Perepadin/MyDiplomQA/blob/master/Allure%20Report.png)
 
-[Заведено 3 Issue](https://github.com/Perepadin/MyDiplomQA/issues)
+
 
 ## Общая информация об ошибках
+
+[Заведено 3 Issue](https://github.com/Perepadin/MyDiplomQA/issues)
 
 + 2 ошибки связанны с веб-интерфейсом (некорректное уведомление о статусе операции, отсутствие проверки формата формат данных в одном из полей, лишнее сообщение об ошибке).
 + 1 грамматическая ошибка в макете
