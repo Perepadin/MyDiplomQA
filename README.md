@@ -54,8 +54,8 @@
 
 ## Лицензия
 
-1. Google Chrome - распространяется бесплатно;
-1. IntelliJ IDEA Community Edition - бесплатный инструмент разработки;
+1. [Google Chrome](https://www.google.ru/chrome/) - распространяется бесплатно;
+1. [IntelliJ IDEA Community Edition](https://www.jetbrains.com/ru-ru/idea/download/#section=windows) - бесплатный инструмент разработки;
 1. Установить [Github desktop](https://desktop.github.com) - бесплатный инструмент разработки;
 1. Установить [Docker](https://www.docker.com) - бесплатный инструмент разработки.
 
