@@ -16,9 +16,10 @@
 *  24 негативных (по 2 для каждого способа оплаты).
 
 Соотношение успешных/неуспешных тестов: 20/6
-![](.png)
 
-[Заведено  Issue]()
+![](https://github.com/Perepadin/MyDiplomQA/blob/master/Allure%20Report.png)
+
+[Заведено 6 Issue](https://github.com/Perepadin/MyDiplomQA/issues)
 
 ## Общая информация об ошибках
 
