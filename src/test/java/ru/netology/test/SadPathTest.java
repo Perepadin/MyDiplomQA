@@ -156,6 +156,10 @@ public class SadPathTest {
         var declinedCardInformation = DataHelper.getDeclinedCardInformation();
         paymentPage.enterCardData(declinedCardInformation);
         paymentPage.notSuccessfulPayment();
+
+        var paymentId = SqlUtils.getPaymentId();
+        var statusForPayment = SqlUtils.getStatusForPayment(paymentId);
+        Assertions.assertEquals("DECLINED", statusForPayment);
     }
 
     @DisplayName("15 A negative scenario. Purchase on credit with a Declined card.")
@@ -166,6 +170,10 @@ public class SadPathTest {
         var declinedCardInformation = DataHelper.getDeclinedCardInformation();
         paymentPage.enterCardData(declinedCardInformation);
         paymentPage.notSuccessfulPayment();
+
+        var paymentId = SqlUtils.getPaymentId();
+        var statusForPayment = SqlUtils.getStatusForCredit(paymentId);
+        Assertions.assertEquals("DECLINED", statusForPayment);
     }
 
     @DisplayName("16 A negative scenario. Purchase using an expired card (in previous years).")
