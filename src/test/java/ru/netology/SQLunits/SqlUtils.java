@@ -1,9 +1,12 @@
 package ru.netology.SQLunits;
 
+import lombok.SneakyThrows;
+
 import java.sql.*;
 
 public class SqlUtils {
-      public static Connection getConnection() throws SQLException {
+    @SneakyThrows
+    public static Connection getConnection() {
         String dbUrl = System.getProperty("db.url");
         String login = System.getProperty("login");
         String password = System.getProperty("password");
@@ -11,9 +14,10 @@ public class SqlUtils {
         return connection;
     }
 
-    public static String getPaymentId() throws SQLException {
+    @SneakyThrows
+    public static String getPaymentId() {
         String payment_id = null;
-        var idSQL = "SELECT payment_id FROM order_entity order by created desc limit 1;";
+        var idSQL = "SELECT payment_id FROM order_entity order by created desc;";
         try (var conn = getConnection();
              var statusStmt = conn.prepareStatement(idSQL)) {
             try (var rs = statusStmt.executeQuery()) {
@@ -25,7 +29,8 @@ public class SqlUtils {
         return payment_id;
     }
 
-    public static String getStatusForPayment(String paymentId) throws SQLException {
+    @SneakyThrows
+    public static String getStatusForPayment(String paymentId) {
         String statusSQL = "SELECT status FROM payment_entity WHERE transaction_id =?; ";
         String status = null;
         try (var conn = getConnection();
@@ -40,7 +45,8 @@ public class SqlUtils {
         return status;
     }
 
-    public static String getStatusForCredit(String paymentId) throws SQLException {
+    @SneakyThrows
+    public static String getStatusForCredit(String paymentId) {
         String statusSQL = "SELECT status FROM credit_request_entity WHERE bank_id =?; ";
         String status = null;
         try (var conn = getConnection();

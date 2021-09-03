@@ -5,9 +5,9 @@ import io.qameta.allure.selenide.AllureSelenide;
 import org.junit.jupiter.api.*;
 import ru.netology.SQLunits.SqlUtils;
 import ru.netology.data.DataHelper;
-import ru.netology.page.TourOfferPage;
+import ru.netology.page.PayByCardPage;
+import ru.netology.page.PayByCreditCardPage;
 
-import java.sql.SQLException;
 
 import static com.codeborne.selenide.Selenide.open;
 
@@ -29,10 +29,10 @@ public class HappyPathTest {
         SelenideLogger.removeListener("allure");
     }
 
-    @DisplayName("1. Успешная покупка по карте.")
+    @DisplayName("1. Successful purchase by card.")
     @Test
-    public void shouldConfirmPaymentWithApprovedCard() throws SQLException {
-        var tourOfferPage = new TourOfferPage();
+    public void shouldConfirmPaymentWithApprovedCard() {
+        var tourOfferPage = new PayByCardPage();
         var paymentPage = tourOfferPage.payByCard();
         var approvedCardInformation = DataHelper.getValidCardInformation();
         paymentPage.enterCardData(approvedCardInformation);
@@ -43,10 +43,10 @@ public class HappyPathTest {
         Assertions.assertEquals("APPROVED", statusForPayment);
     }
 
-    @DisplayName("2. Успешная покупка в кредит.")
+    @DisplayName("2. Successful purchase on credit")
     @Test
-    public void shouldConfirmBuyingOnCreditWithApprovedCard() throws SQLException {
-        var tourOfferPage = new TourOfferPage();
+    public void shouldConfirmBuyingOnCreditWithApprovedCard() {
+        var tourOfferPage = new PayByCreditCardPage();
         var paymentPage = tourOfferPage.buyOnCredit();
         var approvedCardInformation = DataHelper.getValidCardInformation();
         paymentPage.enterCardData(approvedCardInformation);
