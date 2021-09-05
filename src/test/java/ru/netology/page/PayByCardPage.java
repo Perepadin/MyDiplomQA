@@ -60,6 +60,4 @@ public class PayByCardPage extends TourOfferPage {
     public void expiredPayCardMonth() {
         expiredMonthError.shouldBe(visible);
     }
-
-
 }

@@ -20,4 +20,3 @@ public class TourOfferPage {
         return new PayByCreditCardPage();
     }
 }
-
