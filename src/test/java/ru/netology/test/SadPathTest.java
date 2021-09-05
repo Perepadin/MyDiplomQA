@@ -7,7 +7,7 @@ import ru.netology.SQLunits.SqlUtils;
 import ru.netology.data.DataHelper;
 import ru.netology.page.PayByCardPage;
 import ru.netology.page.PayByCreditCardPage;
-
+import ru.netology.page.TourOfferPage;
 
 import static com.codeborne.selenide.Selenide.open;
 
@@ -18,261 +18,285 @@ public class SadPathTest {
         SelenideLogger.addListener("allure", new AllureSelenide());
     }
 
-    @BeforeEach
-    public void openChrome() {
-        open("http://localhost:8080/");
-    }
-
     @AfterAll
     static void tearDownAll() {
         SelenideLogger.removeListener("allure");
     }
 
-    @DisplayName("Негативный сценарий. Покупка с незаполненными данными.")
+    @BeforeEach
+    public void openChrome() {
+        open("http://localhost:8080/");
+    }
+
+    @DisplayName("3 Негативный сценарий. Покупка с незаполненными данными.")
     @Test
     public void shouldNotConfirmPaymentWithEmptyForm() {
-        var tourOfferPage = new PayByCardPage();
-        var paymentPage = tourOfferPage.payByCard();
+        var tourOfferPage = new TourOfferPage();
+        var PayByCard = new PayByCardPage();
         var invalidCardInformation = DataHelper.getEmptyCardInformation();
-        paymentPage.enterCardData(invalidCardInformation);
-        paymentPage.invalidFormat();
+        tourOfferPage.payByCard();
+        PayByCard.enterPayCardData(invalidCardInformation);
+        PayByCard.invalidPayCardFormat();
     }
 
-    @DisplayName("3 A negative scenario. Purchase on credit with blank data.")
+    @DisplayName("4 A negative scenario. Purchase on credit with blank data.")
     @Test
     public void shouldNotConfirmBuyingOnCreditWithEmptyForm() {
-        var tourOfferPage = new PayByCreditCardPage();
-        var paymentPage = tourOfferPage.buyOnCredit();
+        var tourOfferPage = new TourOfferPage();
+        var PayByCreditCard = new PayByCreditCardPage();
         var emptyCardInformation = DataHelper.getEmptyCardInformation();
-        paymentPage.enterCardData(emptyCardInformation);
-        paymentPage.invalidFormat();
+        tourOfferPage.buyOnCredit();
+        PayByCreditCard.enterCreditCardData(emptyCardInformation);
+        PayByCreditCard.invalidCreditCardFormat();
     }
 
-    @DisplayName("4 A negative scenario. Purchase with blank card data.")
+    @DisplayName("5 A negative scenario. Purchase with blank card data.")
     @Test
     public void shouldNotConfirmPaymentWithEmptyFieldCard() {
-        var tourOfferPage = new PayByCardPage();
-        var paymentPage = tourOfferPage.payByCard();
+        var tourOfferPage = new TourOfferPage();
+        var PayByCard = new PayByCardPage();
         var fieldCardEmpty = DataHelper.getFieldCardEmpty();
-        paymentPage.enterCardData(fieldCardEmpty);
-        paymentPage.invalidFormat();
+        tourOfferPage.payByCard();
+        PayByCard.enterPayCardData(fieldCardEmpty);
+        PayByCard.invalidPayCardFormat();
     }
 
-    @DisplayName("5 A negative scenario. Purchase on credit with blank card details.")
+    @DisplayName("6 A negative scenario. Purchase on credit with blank card details.")
     @Test
     public void shouldNotConfirmBuyingOnCreditWithEmptyFieldCard() {
-        var tourOfferPage = new PayByCreditCardPage();
-        var paymentPage = tourOfferPage.buyOnCredit();
+        var tourOfferPage = new TourOfferPage();
+        var PayByCreditCard = new PayByCreditCardPage();
         var fieldCardEmpty = DataHelper.getFieldCardEmpty();
-        paymentPage.enterCardData(fieldCardEmpty);
-        paymentPage.invalidFormat();
+        tourOfferPage.buyOnCredit();
+        PayByCreditCard.enterCreditCardData(fieldCardEmpty);
+        PayByCreditCard.invalidCreditCardFormat();
     }
 
-    @DisplayName("6 A negative scenario. Purchase with a card with blank card data")
+    @DisplayName("7 A negative scenario. Purchase with a card with blank card data")
     @Test
     public void shouldNotConfirmPaymentWithEmptyFieldYear() {
-        var tourOfferPage = new PayByCardPage();
-        var paymentPage = tourOfferPage.payByCard();
+        var tourOfferPage = new TourOfferPage();
+        var PayByCard = new PayByCardPage();
         var fieldYearEmpty = DataHelper.getFieldYearEmpty();
-        paymentPage.enterCardData(fieldYearEmpty);
-        paymentPage.invalidFormat();
+        tourOfferPage.payByCard();
+        PayByCard.enterPayCardData(fieldYearEmpty);
+        PayByCard.invalidPayCardFormat();
     }
 
-    @DisplayName("7 A negative scenario. Purchase on credit with the data of the Year field blank.")
+    @DisplayName("8 A negative scenario. Purchase on credit with the data of the Year field blank.")
     @Test
     public void shouldNotConfirmBuyingOnCreditWithEmptyFieldYear() {
-        var tourOfferPage = new PayByCreditCardPage();
-        var paymentPage = tourOfferPage.buyOnCredit();
+        var tourOfferPage = new TourOfferPage();
+        var PayByCreditCard = new PayByCreditCardPage();
         var fieldYearEmpty = DataHelper.getFieldYearEmpty();
-        paymentPage.enterCardData(fieldYearEmpty);
-        paymentPage.invalidFormat();
+        tourOfferPage.buyOnCredit();
+        PayByCreditCard.enterCreditCardData(fieldYearEmpty);
+        PayByCreditCard.invalidCreditCardFormat();
     }
 
-    @DisplayName("8 A negative scenario. A purchase with blank data in the Month field.")
+    @DisplayName("9 A negative scenario. A purchase with blank data in the Month field.")
     @Test
     public void shouldNotConfirmPaymentWithEmptyFieldMonth() {
-        var tourOfferPage = new PayByCardPage();
-        var paymentPage = tourOfferPage.payByCard();
+        var tourOfferPage = new TourOfferPage();
+        var PayByCard = new PayByCardPage();
         var fieldMonthEmpty = DataHelper.getFieldMonthEmpty();
-        paymentPage.enterCardData(fieldMonthEmpty);
-        paymentPage.invalidFormat();
+        tourOfferPage.payByCard();
+        PayByCard.enterPayCardData(fieldMonthEmpty);
+        PayByCard.invalidPayCardFormat();
     }
 
-    @DisplayName("9 A negative scenario. Purchase on credit with the data of the Month field blank.")
+    @DisplayName("10 A negative scenario. Purchase on credit with the data of the Month field blank.")
     @Test
     public void shouldNotConfirmBuyingOnCreditWithEmptyFieldMonth() {
-        var tourOfferPage = new PayByCreditCardPage();
-        var paymentPage = tourOfferPage.buyOnCredit();
+        var tourOfferPage = new TourOfferPage();
+        var PayByCreditCard = new PayByCreditCardPage();
         var fieldMonthEmpty = DataHelper.getFieldMonthEmpty();
-        paymentPage.enterCardData(fieldMonthEmpty);
-        paymentPage.invalidFormat();
+        tourOfferPage.buyOnCredit();
+        PayByCreditCard.enterCreditCardData(fieldMonthEmpty);
+        PayByCreditCard.invalidCreditCardFormat();
     }
 
-    @DisplayName("10 A negative scenario. Purchase with blank data in the Holder field")
+    @DisplayName("11 A negative scenario. Purchase with blank data in the Holder field")
     @Test
     public void shouldNotConfirmPaymentWithEmptyFieldHolder() {
-        var tourOfferPage = new PayByCardPage();
-        var paymentPage = tourOfferPage.payByCard();
+        var tourOfferPage = new TourOfferPage();
+        var PayByCard = new PayByCardPage();
         var fieldHolderEmpty = DataHelper.getFieldHolderEmpty();
-        paymentPage.enterCardData(fieldHolderEmpty);
-        paymentPage.requiredToFillIn();
+        tourOfferPage.payByCard();
+        PayByCard.enterPayCardData(fieldHolderEmpty);
+        PayByCard.requiredPayCardToFillIn();
     }
 
-    @DisplayName("11 A negative scenario. Purchase on credit with blank data in the Holder field")
+    @DisplayName("12 A negative scenario. Purchase on credit with blank data in the Holder field")
     @Test
     public void shouldNotConfirmBuyingOnCreditWithEmptyFieldHolder() {
-        var tourOfferPage = new PayByCreditCardPage();
-        var paymentPage = tourOfferPage.buyOnCredit();
+        var tourOfferPage = new TourOfferPage();
+        var PayByCreditCard = new PayByCreditCardPage();
         var fieldHolderEmpty = DataHelper.getFieldHolderEmpty();
-        paymentPage.enterCardData(fieldHolderEmpty);
-        paymentPage.requiredToFillIn();
+        tourOfferPage.buyOnCredit();
+        PayByCreditCard.enterCreditCardData(fieldHolderEmpty);
+        PayByCreditCard.requiredCreditCardToFillIn();
     }
 
-    @DisplayName("12 A negative scenario. Purchase with blank CVV field data.")
+    @DisplayName("13 A negative scenario. Purchase with blank CVV field data.")
     @Test
     public void shouldNotConfirmPaymentWithEmptyFieldCvv() {
-        var tourOfferPage = new PayByCardPage();
-        var paymentPage = tourOfferPage.payByCard();
+        var tourOfferPage = new TourOfferPage();
+        var PayByCard = new PayByCardPage();
         var fieldCvvEmpty = DataHelper.getFieldCVVEmpty();
-        paymentPage.enterCardData(fieldCvvEmpty);
-        paymentPage.invalidFormat();
+        tourOfferPage.payByCard();
+        PayByCard.enterPayCardData(fieldCvvEmpty);
+        PayByCard.invalidPayCardFormat();
     }
 
-    @DisplayName("13 A negative scenario. Purchase on credit with blank CVV field data.")
+    @DisplayName("14 A negative scenario. Purchase on credit with blank CVV field data.")
     @Test
     public void shouldNotConfirmBuyingOnCreditWithEmptyFieldCvv() {
-        var tourOfferPage = new PayByCreditCardPage();
-        var paymentPage = tourOfferPage.buyOnCredit();
+        var tourOfferPage = new TourOfferPage();
+        var PayByCreditCard = new PayByCreditCardPage();
         var fieldCvvEmpty = DataHelper.getFieldCVVEmpty();
-        paymentPage.enterCardData(fieldCvvEmpty);
-        paymentPage.invalidFormat();
+        tourOfferPage.buyOnCredit();
+        PayByCreditCard.enterCreditCardData(fieldCvvEmpty);
+        PayByCreditCard.invalidCreditCardFormat();
     }
 
-    @DisplayName("14 A negative scenario. Purchase with a Declined card.")
+    @DisplayName("15 A negative scenario. Purchase with a Declined card.")
     @Test
     public void shouldPaymentWithDeclinedCard() {
-        var tourOfferPage = new PayByCardPage();
-        var paymentPage = tourOfferPage.payByCard();
+        var tourOfferPage = new TourOfferPage();
+        var PayByCard = new PayByCardPage();
         var declinedCardInformation = DataHelper.getDeclinedCardInformation();
-        paymentPage.enterCardData(declinedCardInformation);
-        paymentPage.notSuccessfulPayment();
+        tourOfferPage.payByCard();
+        PayByCard.enterPayCardData(declinedCardInformation);
+        PayByCard.notSuccessfulPayCardPayment();
 
         var paymentId = SqlUtils.getPaymentId();
         var statusForPayment = SqlUtils.getStatusForPayment(paymentId);
         Assertions.assertEquals("DECLINED", statusForPayment);
     }
 
-    @DisplayName("15 A negative scenario. Purchase on credit with a Declined card.")
+    @DisplayName("16 A negative scenario. Purchase on credit with a Declined card.")
     @Test
     public void shouldPaymentWithDeclinedCreditCard() {
-        var tourOfferPage = new PayByCreditCardPage();
-        var paymentPage = tourOfferPage.buyOnCredit();
+        var tourOfferPage = new TourOfferPage();
+        var PayByCreditCard = new PayByCreditCardPage();
         var declinedCardInformation = DataHelper.getDeclinedCardInformation();
-        paymentPage.enterCardData(declinedCardInformation);
-        paymentPage.notSuccessfulPayment();
+        tourOfferPage.buyOnCredit();
+        PayByCreditCard.enterCreditCardData(declinedCardInformation);
+        PayByCreditCard.notSuccessfulCreditCardPayment();
 
         var paymentId = SqlUtils.getPaymentId();
         var statusForPayment = SqlUtils.getStatusForCredit(paymentId);
         Assertions.assertEquals("DECLINED", statusForPayment);
     }
 
-    @DisplayName("16 A negative scenario. Purchase using an expired card (in previous years).")
+    @DisplayName("17 A negative scenario. Purchase using an expired card (in previous years).")
     @Test
     public void shouldNotConfirmPaymentWithExpiredYearCard() {
-        var tourOfferPage = new PayByCardPage();
-        var paymentPage = tourOfferPage.payByCard();
+        var tourOfferPage = new TourOfferPage();
+        var PayByCard = new PayByCardPage();
         var invalidCardInformation = DataHelper.getCardInformationWithExpiredYear();
-        paymentPage.enterCardData(invalidCardInformation);
-        paymentPage.expiredYear();
+        tourOfferPage.payByCard();
+        PayByCard.enterPayCardData(invalidCardInformation);
+        PayByCard.expiredPayCardYear();
     }
 
-    @DisplayName("17 A negative scenario. Purchase on credit using an expired card (in previous years).")
+    @DisplayName("18 A negative scenario. Purchase on credit using an expired card (in previous years).")
     @Test
     public void shouldNotConfirmBuyingOnCreditWithExpiredYearCard() {
-        var tourOfferPage = new PayByCreditCardPage();
-        var paymentPage = tourOfferPage.buyOnCredit();
+        var tourOfferPage = new TourOfferPage();
+        var PayByCreditCard = new PayByCreditCardPage();
         var invalidCardInformation = DataHelper.getCardInformationWithExpiredYear();
-        paymentPage.enterCardData(invalidCardInformation);
-        paymentPage.expiredYear();
+        tourOfferPage.buyOnCredit();
+        PayByCreditCard.enterCreditCardData(invalidCardInformation);
+        PayByCreditCard.expiredCreditCardYear();
     }
 
-    @DisplayName("18 A negative scenario. Purchase using an expired card (in the last month).")
+    @DisplayName("19 A negative scenario. Purchase using an expired card (in the last month).")
     @Test
     public void shouldNotConfirmPaymentWithExpiredMonthCard() {
-        var tourOfferPage = new PayByCardPage();
-        var paymentPage = tourOfferPage.payByCard();
+        var tourOfferPage = new TourOfferPage();
+        var PayByCard = new PayByCardPage();
         var invalidCardInformation = DataHelper.getCardInformationWithExpiredMonth();
-        paymentPage.enterCardData(invalidCardInformation);
-        paymentPage.expiredMonth();
+        tourOfferPage.payByCard();
+        PayByCard.enterPayCardData(invalidCardInformation);
+        PayByCard.expiredPayCardMonth();
     }
 
-    @DisplayName("19 A negative scenario. Purchase on credit using an expired card (in the last month).")
+    @DisplayName("20 A negative scenario. Purchase on credit using an expired card (in the last month).")
     @Test
     public void shouldNotConfirmBuyingOnCreditWithExpiredMonthCard() {
-        var tourOfferPage = new PayByCreditCardPage();
-        var paymentPage = tourOfferPage.buyOnCredit();
+        var tourOfferPage = new TourOfferPage();
+        var PayByCreditCard = new PayByCreditCardPage();
         var invalidCardInformation = DataHelper.getCardInformationWithExpiredMonth();
-        paymentPage.enterCardData(invalidCardInformation);
-        paymentPage.expiredMonth();
+        tourOfferPage.buyOnCredit();
+        PayByCreditCard.enterCreditCardData(invalidCardInformation);
+        PayByCreditCard.expiredCreditCardMonth();
     }
 
-    @DisplayName("20 A negative scenario. Purchase using a card with the holder's name in Cyrillic.")
+    @DisplayName("21 A negative scenario. Purchase using a card with the holder's name in Cyrillic.")
     @Test
     public void shouldNotConfirmPaymentWithCyrillicHolderFieldCard() {
-        var tourOfferPage = new PayByCardPage();
-        var paymentPage = tourOfferPage.payByCard();
+        var tourOfferPage = new TourOfferPage();
+        var PayByCard = new PayByCardPage();
         var invalidCardInformation = DataHelper.getCardInformationWithCyrillicName();
-        paymentPage.enterCardData(invalidCardInformation);
-        paymentPage.invalidFormat();
+        tourOfferPage.payByCard();
+        PayByCard.enterPayCardData(invalidCardInformation);
+        PayByCard.invalidPayCardFormat();
     }
 
-    @DisplayName("21 A negative scenario. Purchase on credit using a card with the holder's name in Cyrillic.")
+    @DisplayName("22 A negative scenario. Purchase on credit using a card with the holder's name in Cyrillic.")
     @Test
     public void shouldNotConfirmBuyingOnCreditWithCyrillicHolderFieldCard() {
-        var tourOfferPage = new PayByCreditCardPage();
-        var paymentPage = tourOfferPage.buyOnCredit();
+        var tourOfferPage = new TourOfferPage();
+        var PayByCreditCard = new PayByCreditCardPage();
         var invalidCardInformation = DataHelper.getCardInformationWithCyrillicName();
-        paymentPage.enterCardData(invalidCardInformation);
-        paymentPage.invalidFormat();
+        tourOfferPage.buyOnCredit();
+        PayByCreditCard.enterCreditCardData(invalidCardInformation);
+        PayByCreditCard.invalidCreditCardFormat();
     }
 
-    @DisplayName("22 A negative scenario. Purchase using a card with numbers in the name of the holder.")
+    @DisplayName("23 A negative scenario. Purchase using a card with numbers in the name of the holder.")
     @Test
     public void shouldNotConfirmPaymentWithNumericHolderFieldCard() {
-        var tourOfferPage = new PayByCardPage();
-        var paymentPage = tourOfferPage.payByCard();
+        var tourOfferPage = new TourOfferPage();
+        var PayByCard = new PayByCardPage();
         var invalidCardInformation = DataHelper.getCardInformationWithNumericName();
-        paymentPage.enterCardData(invalidCardInformation);
-        paymentPage.invalidFormat();
+        tourOfferPage.payByCard();
+        PayByCard.enterPayCardData(invalidCardInformation);
+        PayByCard.invalidPayCardFormat();
     }
 
-    @DisplayName("23 A negative scenario. Purchase on credit according to the card data with numbers in the name of the holder.")
+    @DisplayName("24 A negative scenario. Purchase on credit according to the card data with numbers in the name of the holder.")
     @Test
     public void shouldNotConfirmBuyingOnCreditWithNumericHolderFieldCard() {
-        var tourOfferPage = new PayByCreditCardPage();
-        var paymentPage = tourOfferPage.buyOnCredit();
+        var tourOfferPage = new TourOfferPage();
+        var PayByCreditCard = new PayByCreditCardPage();
         var invalidCardInformation = DataHelper.getCardInformationWithNumericName();
-        paymentPage.enterCardData(invalidCardInformation);
-        paymentPage.invalidFormat();
+        tourOfferPage.buyOnCredit();
+        PayByCreditCard.enterCreditCardData(invalidCardInformation);
+        PayByCreditCard.invalidCreditCardFormat();
     }
 
-    @DisplayName("24 A negative scenario. Purchase using a card with an incorrect date field format")
+    @DisplayName("25 A negative scenario. Purchase using a card with an incorrect date field format")
     @Test
     public void shouldNotConfirmPaymentWithWrongFormatFieldsCard() {
-        var tourOfferPage = new PayByCardPage();
-        var paymentPage = tourOfferPage.payByCard();
+        var tourOfferPage = new TourOfferPage();
+        var PayByCard = new PayByCardPage();
         var invalidCardInformation = DataHelper.getCardInformationWithWrongFormatDate();
-        paymentPage.enterCardData(invalidCardInformation);
-        paymentPage.invalidFormat();
+        tourOfferPage.payByCard();
+        PayByCard.enterPayCardData(invalidCardInformation);
+        PayByCard.invalidPayCardFormat();
     }
 
-    @DisplayName("25 A negative scenario. Purchase on credit according to the card data with the wrong format of the date fields.")
+    @DisplayName("26 A negative scenario. Purchase on credit according to the card data with the wrong format of the date fields.")
     @Test
     public void shouldNotConfirmBuyingOnCreditWithWrongFormatFieldsCard() {
-        var tourOfferPage = new PayByCreditCardPage();
-        var paymentPage = tourOfferPage.buyOnCredit();
+        var tourOfferPage = new TourOfferPage();
+        var PayByCreditCard = new PayByCreditCardPage();
         var invalidCardInformation = DataHelper.getCardInformationWithWrongFormatDate();
-        paymentPage.enterCardData(invalidCardInformation);
-        paymentPage.invalidFormat();
+        tourOfferPage.buyOnCredit();
+        PayByCreditCard.enterCreditCardData(invalidCardInformation);
+        PayByCreditCard.invalidCreditCardFormat();
     }
 }
