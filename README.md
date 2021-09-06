@@ -41,7 +41,7 @@
 1. Клонировать репозиторий, выполнить команду:
 ```git clone https://github.com/Perepadin/MyDiplomQA```
 1. Запуск контейнеров Docker, выполнить команду:
-   ```docker-compose up -d```
+   ```docker-compose up```
 1. Запуск SUT с поддержкой **Postgres**, выполнить команду
 ```java "-Dspring.datasource.url=jdbc:postgresql://localhost:5432/app" -jar artifacts/aqa-shop.jar```
 
