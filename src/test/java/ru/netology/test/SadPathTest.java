@@ -28,7 +28,7 @@ public class SadPathTest {
         open("http://localhost:8080/");
     }
 
-    @DisplayName("3 Негативный сценарий. Покупка с незаполненными данными.")
+    @DisplayName("3 Negative scenario. Purchase on card with blank data.")
     @Test
     public void shouldNotConfirmPaymentWithEmptyForm() {
         var tourOfferPage = new TourOfferPage();
@@ -39,7 +39,7 @@ public class SadPathTest {
         payByCard.invalidPayCardFormat();
     }
 
-    @DisplayName("4 A negative scenario. Purchase on credit with blank data.")
+    @DisplayName("4 Negative scenario. Purchase on credit with blank data.")
     @Test
     public void shouldNotConfirmBuyingOnCreditWithEmptyForm() {
         var tourOfferPage = new TourOfferPage();
@@ -50,7 +50,7 @@ public class SadPathTest {
         payByCreditCard.invalidCreditCardFormat();
     }
 
-    @DisplayName("5 A negative scenario. Purchase with blank card data.")
+    @DisplayName("5 Negative scenario. Purchase with blank card data.")
     @Test
     public void shouldNotConfirmPaymentWithEmptyFieldCard() {
         var tourOfferPage = new TourOfferPage();
@@ -61,7 +61,7 @@ public class SadPathTest {
         payByCard.invalidPayCardFormat();
     }
 
-    @DisplayName("6 A negative scenario. Purchase on credit with blank card details.")
+    @DisplayName("6 Negative scenario. Purchase on credit with blank card details.")
     @Test
     public void shouldNotConfirmBuyingOnCreditWithEmptyFieldCard() {
         var tourOfferPage = new TourOfferPage();
@@ -72,7 +72,7 @@ public class SadPathTest {
         payByCreditCard.invalidCreditCardFormat();
     }
 
-    @DisplayName("7 A negative scenario. Purchase with the data of the Year field blank.")
+    @DisplayName("7 Negative scenario. Purchase with the data of the Year field blank.")
     @Test
     public void shouldNotConfirmPaymentWithEmptyFieldYear() {
         var tourOfferPage = new TourOfferPage();
@@ -83,7 +83,7 @@ public class SadPathTest {
         payByCard.invalidPayCardFormat();
     }
 
-    @DisplayName("8 A negative scenario. Purchase on credit with the data of the Year field blank.")
+    @DisplayName("8 Negative scenario. Purchase on credit with the data of the Year field blank.")
     @Test
     public void shouldNotConfirmBuyingOnCreditWithEmptyFieldYear() {
         var tourOfferPage = new TourOfferPage();
@@ -94,7 +94,7 @@ public class SadPathTest {
         payByCreditCard.invalidCreditCardFormat();
     }
 
-    @DisplayName("9 A negative scenario. A purchase with blank data in the Month field.")
+    @DisplayName("9 Negative scenario. A purchase with blank data in the Month field.")
     @Test
     public void shouldNotConfirmPaymentWithEmptyFieldMonth() {
         var tourOfferPage = new TourOfferPage();
@@ -105,7 +105,7 @@ public class SadPathTest {
         payByCard.invalidPayCardFormat();
     }
 
-    @DisplayName("10 A negative scenario. Purchase on credit with the data of the Month field blank.")
+    @DisplayName("10 Negative scenario. Purchase on credit with the data of the Month field blank.")
     @Test
     public void shouldNotConfirmBuyingOnCreditWithEmptyFieldMonth() {
         var tourOfferPage = new TourOfferPage();
@@ -116,7 +116,7 @@ public class SadPathTest {
         payByCreditCard.invalidCreditCardFormat();
     }
 
-    @DisplayName("11 A negative scenario. Purchase with blank data in the Holder field")
+    @DisplayName("11 Negative scenario. Purchase with blank data in the Holder field")
     @Test
     public void shouldNotConfirmPaymentWithEmptyFieldHolder() {
         var tourOfferPage = new TourOfferPage();
@@ -127,7 +127,7 @@ public class SadPathTest {
         payByCard.requiredPayCardToFillIn();
     }
 
-    @DisplayName("12 A negative scenario. Purchase on credit with blank data in the Holder field")
+    @DisplayName("12 Negative scenario. Purchase on credit with blank data in the Holder field")
     @Test
     public void shouldNotConfirmBuyingOnCreditWithEmptyFieldHolder() {
         var tourOfferPage = new TourOfferPage();
@@ -138,7 +138,7 @@ public class SadPathTest {
         payByCreditCard.requiredCreditCardToFillIn();
     }
 
-    @DisplayName("13 A negative scenario. Purchase with blank CVV field data.")
+    @DisplayName("13 Negative scenario. Purchase with blank CVV field data.")
     @Test
     public void shouldNotConfirmPaymentWithEmptyFieldCvv() {
         var tourOfferPage = new TourOfferPage();
@@ -149,7 +149,7 @@ public class SadPathTest {
         payByCard.invalidPayCardFormat();
     }
 
-    @DisplayName("14 A negative scenario. Purchase on credit with blank CVV field data.")
+    @DisplayName("14 Negative scenario. Purchase on credit with blank CVV field data.")
     @Test
     public void shouldNotConfirmBuyingOnCreditWithEmptyFieldCvv() {
         var tourOfferPage = new TourOfferPage();
@@ -160,7 +160,7 @@ public class SadPathTest {
         payByCreditCard.invalidCreditCardFormat();
     }
 
-    @DisplayName("15 A negative scenario. Purchase with a Declined card.")
+    @DisplayName("15 Negative scenario. Purchase with a Declined card.")
     @Test
     public void shouldPaymentWithDeclinedCard() {
         var tourOfferPage = new TourOfferPage();
@@ -175,7 +175,7 @@ public class SadPathTest {
         Assertions.assertEquals("DECLINED", statusForPayment);
     }
 
-    @DisplayName("16 A negative scenario. Purchase on credit with a Declined card.")
+    @DisplayName("16 Negative scenario. Purchase on credit with a Declined card.")
     @Test
     public void shouldPaymentWithDeclinedCreditCard() {
         var tourOfferPage = new TourOfferPage();
@@ -234,7 +234,7 @@ public class SadPathTest {
         payByCreditCard.expiredCreditCardMonth();
     }
 
-    @DisplayName("21 Negative scenario. A purchase with a card that expires in the current month and year.")
+    @DisplayName("21 Negative scenario. Purchase with a card that expires in the current month and year.")
     @Test
     public void shouldConfirmPaymentWithNowCurrentMonthAndYear() {
         var tourOfferPage = new TourOfferPage();
@@ -245,7 +245,7 @@ public class SadPathTest {
         payByCard.successfulPayCardPayment();
     }
 
-    @DisplayName("22 Negative scenario. A purchase with a credit card that expires in the current month and year.")
+    @DisplayName("22 Negative scenario. Purchase with a credit card that expires in the current month and year.")
     @Test
     public void shouldConfirmBuyingOnCreditWithCurrentMonthAndYear() {
         var tourOfferPage = new TourOfferPage();
