@@ -33,11 +33,11 @@ public class HappyPathTest {
     @Test
     public void shouldConfirmPaymentWithApprovedCard() {
         var tourOfferPage = new TourOfferPage();
-        var PayByCard = new PayByCardPage();
+        var payByCard = new PayByCardPage();
         var approvedCardInformation = DataHelper.getValidCardInformation();
         tourOfferPage.payByCard();
-        PayByCard.enterPayCardData(approvedCardInformation);
-        PayByCard.successfulPayCardPayment();
+        payByCard.enterPayCardData(approvedCardInformation);
+        payByCard.successfulPayCardPayment();
 
         var paymentId = SqlUtils.getPaymentId();
         var statusForPayment = SqlUtils.getStatusForPayment(paymentId);
@@ -48,11 +48,11 @@ public class HappyPathTest {
     @Test
     public void shouldConfirmBuyingOnCreditWithApprovedCard() {
         var tourOfferPage = new TourOfferPage();
-        var PayByCreditCard = new PayByCreditCardPage();
+        var payByCreditCard = new PayByCreditCardPage();
         var approvedCardInformation = DataHelper.getValidCardInformation();
         tourOfferPage.buyOnCredit();
-        PayByCreditCard.enterCreditCardData(approvedCardInformation);
-        PayByCreditCard.successfulCreditCardPayment();
+        payByCreditCard.enterCreditCardData(approvedCardInformation);
+        payByCreditCard.successfulCreditCardPayment();
 
         var paymentId = SqlUtils.getPaymentId();
         var statusForPayment = SqlUtils.getStatusForCredit(paymentId);
