@@ -21,7 +21,7 @@
 
 ## Соотношение успешных/неуспешных тестов: 28/18
 
-![]()
+![](https://github.com/Perepadin/MyDiplomQA/blob/master/documentation/Allure%20Report.png)
 
 ## Общая информация об ошибках
 
